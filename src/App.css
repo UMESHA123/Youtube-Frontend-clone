@@ -756,6 +756,18 @@
     gap: 20px;
 
 }
+.video-thumbnail-priview{
+    border: 2px dotted white;
+    border-radius: 10px;
+    color: white;
+    width: 100%;
+    height: 100%;
+
+}
+.video-thumbnail-priview img{
+    width: 100%;
+    height: 100%;
+}
 .thumbnail-input{
     border: 1px solid white;
     color: white;
@@ -863,26 +875,30 @@ input[type=file]::file-selector-button{
 .my-video-container{
     border:1px solid white;
     color: white;
-    overflow-x: scroll;
+    width: 74.5em;
     margin: 1em;
+    
+    overflow: scroll;
 }
 .my-card-data{
     display: flex;
     margin-bottom: 5px;
     margin-top: 5px;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center; 
+    width: 74em;
 }
 .my-card-header{
-    width:100vh;
+    width:74em;
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     border-bottom: 1px solid white;
-    width: 100%;
-
+    align-items: center;
+    justify-content: center;
+}
+.my-card-header h4{
+    width: 17%;
 }
 .switch {
     position: relative;
@@ -998,6 +1014,12 @@ input[type=file]::file-selector-button{
 }
 .l-update{
     cursor: pointer;
+}
+.width-16{
+    width:20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media only screen and (max-width: 1100px) {

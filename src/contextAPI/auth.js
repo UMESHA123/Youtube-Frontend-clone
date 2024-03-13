@@ -21,15 +21,15 @@ const AuthProvider = ({children}) => {
 
     const navigate = useNavigate();
 
-    const login = async (d) => {
-        // console.log("d",d);
+    const login = async (formData) => {
+        // console.log("d",email, username, password);
         await requestHandler(
-            async () => await loginUser(d),
+            async () => await loginUser(formData),
             setIsLoading,
             (res) => {
                 // console.log(res);
                 const {data} = res;
-                setUser(data.user);
+                setUser(data?.user);
                 setToken(data.accessToken);
                 LocalStorage.set("user", data.user);
                 LocalStorage.set("token", data.accessToken);

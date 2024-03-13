@@ -12,17 +12,8 @@ const Login = () => {
 
 
   const handleLogin = async () => {
-    // console.log("loginhandler");
-    // console.log({
-    
-    //   password: password,
-    //   username: username,
-    // })
-    await login({
-      // email: email,
-      password: password,
-      username: username
-    })
+   
+    await login({email: email, username: username, password: password});
   }
 
   return (

@@ -20,9 +20,9 @@ apiClient.interceptors.request.use(
 );
 
 //user routes 
-const loginUser = (data) => {
-    // console.log("index.js",data)
-    return apiClient.post("/users/login", data);
+const loginUser = (formData) => {
+    // console.log("index.js",email, username, password)
+    return apiClient.post("/users/login", formData);
 };
 
 const registerUser = (data) => {

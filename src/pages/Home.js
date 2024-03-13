@@ -12,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     try{
       const getAllPublicVideos = async() => {
-        await apigetAllVideos(page, limit, user._id);
+        await apigetAllVideos(page, limit);
       }
       getAllPublicVideos()
     

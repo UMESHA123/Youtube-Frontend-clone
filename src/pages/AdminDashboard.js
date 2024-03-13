@@ -90,17 +90,14 @@ const AdminDashboard = () => {
             : channelVideos.map((video) => {
               return (
                 <div className='my-card-data'>
-                  <label className="switch">
-                    <input type="checkbox" checked={video.isPublished} />
-                    <span className="slider round"></span>
-                  </label>
-                  <span className='publish-status'>{video.isPublished ? <span className='published'>Published</span> : <span className='unpublished'>Unpublished</span>}</span>
-                  <div className='my-video-info'><img src={video.thumbnail} /><span>{video.title.slice(0, 20) + "..."}</span></div>
-                  <div className='l-d-f'><span className='l-likes'>102 liked</span><span className='l-dislikes'>45 dislikes</span></div>
-                  <p>{video.createdAt.slice(0, 10)}</p>
-                  <div className='l-delete-update'>
-                    <span className='l-delete' onClick={() => deleteVideo(video._id)}><MdDelete /></span>
-                    <span className='l-update' onClick={() => updateVideoHandler(video._id)} ><FaPen /></span>
+                  <input className='width-16' type="checkbox" checked={video.isPublished} />
+                  <span className='width-16 publish-status'>{video.isPublished ? <span className='published'>Published</span> : <span className='unpublished'>Unpublished</span>}</span>
+                  <div className='width-16 my-video-info'><img src={video.thumbnail} /><span>{video.title.slice(0, 30) + "..."}</span></div>
+                  <div className='width-16 l-d-f'><span className='l-likes'>102 liked</span><span className='l-dislikes'>45 dislikes</span></div>
+                  <p className='width-16'>{video.createdAt.slice(0, 10)}</p>
+                  <div className='l-delete-update width-16'>
+                    <span className='width-16 l-delete' onClick={() => deleteVideo(video._id)}><MdDelete /></span>
+                    <span className='width-16 l-update' onClick={() => updateVideoHandler(video._id)} ><FaPen /></span>
                   </div>
                 </div>
               )
