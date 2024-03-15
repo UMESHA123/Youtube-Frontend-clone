@@ -63,13 +63,13 @@ const getUserChannelProfile = (username) => {
 const getMyUserChannelProfile = (username) => {
     return apiClient.get(`users/c/${username}`);
 }
-// video routes
+// video routesuserId
 const getAllMyVideos = (page, limit, userId) => {
-    return apiClient.get(`videos/?userId=${userId}`);
+    return apiClient.get(`videos/?userId=${userId}userId`);
     // return apiClient.get(`videos/?page=${data.page}&${data.limit}&${data.sortBy}&${data.userId}`);
 }
 const getAllVideos = (page, limit) => {
-    return apiClient.get(`videos/?page=${page}&limit=${limit}`);
+    return apiClient.get(`videos/`);
 
     // return apiClient.get(`videos/?page=${data.page}&${data.limit}&${data.sortBy}&${data.userId}`);
 }
