@@ -18,6 +18,13 @@ apiClient.interceptors.request.use(
         // if(dataType !== "json"){
         //     config.headers['Content-Type'] = 'multipart/form-data';
         // }
+
+        if(config.data instanceof FormData){
+            //alert(config.data)
+            config.headers['Content-Type'] = 'multipart/form-data';
+        }else{
+            config.headers['Content-Type'] = 'application/json';
+        }
         return config;
     },
     function (error) {
