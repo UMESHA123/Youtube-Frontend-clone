@@ -21,10 +21,10 @@ const Home = () => {
       console.log(error);
     }
   }, [limit])
-  const loadMoreVideos = async() => {
+  const loadMoreVideos = () => {
     setPage(page+1);
     setLimit(limit);
-   
+   console.log(page)
   }
 
   // console.log("videos", videos)
