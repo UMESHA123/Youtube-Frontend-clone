@@ -1,14 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '../Layout/Layout';
 import { useApp } from "../contextAPI/appcontext";
-import { useAuth } from '../contextAPI/auth';
+import { MdLibraryMusic } from 'react-icons/md';
+// import { useAuth } from '../contextAPI/auth';
 
 const Home = () => {
 
-  const { videos, apigetAllVideos, apigetVideoById, video } = useApp();
-  const {user} = useAuth();
-  let page = 1;
-  let limit = 10;
+  const { videos, apigetAllVideos, apigetVideoById } = useApp();
+  // const {user} = useAuth();
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(10);
   useEffect(() => {
     try{
       const getAllPublicVideos = async() => {
@@ -19,8 +20,12 @@ const Home = () => {
     }catch(error){
       console.log(error);
     }
-  }, [])
-
+  }, [limit])
+  const loadMoreVideos = async() => {
+    setPage(page+1);
+    setLimit(limit);
+   
+  }
 
   // console.log("videos", videos)
   const handleOnCardClick = async (videoId) => {
@@ -53,6 +58,7 @@ const Home = () => {
             )
           })
         }
+        <div className='center'><button onClick={() => loadMoreVideos()} className="button color-btn">Load more</button></div>
       </div> 
     </Layout>
   )
