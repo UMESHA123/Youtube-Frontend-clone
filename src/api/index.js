@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { LocalStorage } from "../utils";
+// import { useAuth } from '../contextAPI/auth';
+
 
 const apiClient = axios.create({
     baseURL: process.env.REACT_APP_BASE_URL,
@@ -9,9 +11,13 @@ const apiClient = axios.create({
 
 apiClient.interceptors.request.use(
     function (config) {
+        // const {dataType} = useAuth();
+        
         const token = LocalStorage.get("token");
         config.headers.Authorization = `Bearer ${token}`;
-        // config.headers['Content-Type'] = 'multipart/form-data';
+        // if(dataType !== "json"){
+        //     config.headers['Content-Type'] = 'multipart/form-data';
+        // }
         return config;
     },
     function (error) {
@@ -20,9 +26,10 @@ apiClient.interceptors.request.use(
 );
 
 //user routes 
-const loginUser = (formData) => {
+const loginUser = (email, username, password) => {
     // console.log("index.js",email, username, password)
-    return apiClient.post("/users/login", formData);
+
+    return apiClient.post("/users/login", {email, username, password});
 };
 
 const registerUser = (data) => {
@@ -65,7 +72,7 @@ const getMyUserChannelProfile = (username) => {
 }
 // video routesuserId
 const getAllMyVideos = (page, limit, userId) => {
-    return apiClient.get(`videos/?userId=${userId}userId`);
+    return apiClient.get(`videos/?userId=${userId}`);
     // return apiClient.get(`videos/?page=${data.page}&${data.limit}&${data.sortBy}&${data.userId}`);
 }
 const getAllVideos = (page, limit) => {
@@ -76,8 +83,14 @@ const getAllVideos = (page, limit) => {
 // const getAllVideos = (d) => {
 //     return apiClient.get(`videos/`, d);
 // }
-const publishVideo = (data) => {
-    return apiClient.post('videos/',data)
+const publishVideo = (thumbnail, video, title, description) => {
+    const formData = new FormData();
+    formData.append("videoFile", video)
+    formData.append("thumbnail", thumbnail)
+    formData.append("title", title)
+    formData.append("description", description)
+
+    return apiClient.post('videos/',formData)
 }
 const getVideoById = (videoId) => {
     return apiClient.get(`videos/${videoId}`)
@@ -85,8 +98,14 @@ const getVideoById = (videoId) => {
 const deleteVideo = (videoId) => {
     return apiClient.delete(`videos/${videoId}`)
 }
-const updateVideo = (videoId, data) => {
-    return apiClient.patch(`videos/${videoId}`, data);
+const updateVideo = (videoId, thumbnail, title, description) => {
+    const formData = new FormData();
+        
+    formData.append("thumbnail", thumbnail)
+    formData.append("title", title)
+    formData.append("description", description)
+
+    return apiClient.patch(`videos/${videoId}`, formData);
 }
 const togglePublishStatus = (videoId) => {
     return apiClient.patch(`videos/toggle/publish/:${videoId}`)

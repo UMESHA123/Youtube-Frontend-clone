@@ -37,10 +37,10 @@ const MyChannel = () => {
                 </div>):(
                     <div className='p-2'>
                     <nav className='nav-tab'>
-                        <NavLink to="Mychannel-videos">Videos</NavLink>
-                        <NavLink to="Mychannel-playlists">PlayList</NavLink>
-                        <NavLink to="Mychannel-tweets">Tweets</NavLink>
-                        <NavLink to="Mychannel-subscribers">Subscribers</NavLink>
+                        <NavLink className="tab-width" to="Mychannel-videos">Videos</NavLink>
+                        <NavLink className="tab-width" to="Mychannel-playlists">PlayList</NavLink>
+                        <NavLink className="tab-width" to="Mychannel-tweets">Tweets</NavLink>
+                        <NavLink className="tab-width" to="Mychannel-subscribers">Subscribers</NavLink>
                         {/* <Outlet/> */}
                     </nav>
                     <Outlet />

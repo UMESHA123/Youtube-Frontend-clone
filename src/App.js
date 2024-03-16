@@ -39,6 +39,7 @@ function App() {
   return (
 
     <BrowserRouter>
+    
       <AuthProvider>
         <AppProvider>
           <Routes>
@@ -82,6 +83,7 @@ function App() {
           </Routes>
         </AppProvider>
       </AuthProvider>
+      
     </BrowserRouter>
 
   );

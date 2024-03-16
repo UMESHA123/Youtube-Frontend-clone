@@ -10,14 +10,10 @@ const UploadVideo = ({closeShowModel, setShowLoadingModel}) => {
     const {apipublishVideo} = useApp();
     
     const handleVideoUpload = async () => {
-        const formData = new FormData();
-        formData.append("videoFile", video)
-        formData.append("thumbnail", thumbnail)
-        formData.append("title", title)
-        formData.append("description", description)
+        
         closeShowModel()
         setShowLoadingModel(true)
-        await apipublishVideo(formData)
+        await apipublishVideo(thumbnail, video, title, description);
     }
   return (
     <div className='model'>

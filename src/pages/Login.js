@@ -13,7 +13,7 @@ const Login = () => {
 
   const handleLogin = async () => {
    
-    await login({email: email, username: username, password: password});
+    await login(email, username, password);
   }
 
   return (

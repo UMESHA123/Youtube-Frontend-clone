@@ -11,7 +11,7 @@ import Uploading from '../models/Uploading';
 import EditVideo from '../models/EditVideo';
 
 const AdminDashboard = () => {
-  const { apigetChannelStats, apigetChannelVideos, channelStats, channelVideos, apigetVideoByIdDetails, videoDetails, apideleteVideo, apitogglePublishStatus } = useApp();
+  const { apigetChannelStats, apigetChannelVideos, channelStats, channelVideos, apigetVideoByIdDetails, videoDetails, apideleteVideo } = useApp();
 
   const [showModel, setShowModel] = useState(false);
 
@@ -87,9 +87,9 @@ const AdminDashboard = () => {
         </div>
         {
           channelVideos.length === 0 ? "No video found"
-            : channelVideos.map((video) => {
+            : channelVideos.map((video, index) => {
               return (
-                <div className='my-card-data'>
+                <div className='my-card-data' key={index}>
                   <input className='width-16' type="checkbox" checked={video.isPublished} />
                   <span className='width-16 publish-status'>{video.isPublished ? <span className='published'>Published</span> : <span className='unpublished'>Unpublished</span>}</span>
                   <div className='width-16 my-video-info'><img src={video.thumbnail} /><span>{video.title.slice(0, 30) + "..."}</span></div>

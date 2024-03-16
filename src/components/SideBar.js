@@ -82,12 +82,12 @@ const SideBar = () => {
       }
       <div className='item-container position-bottom' onClick={getUserChannelHandler}>
         <Link>
-        <div className='item-icon'>
-        <IoSettingsSharp />
-        </div>
-        <div className='item-title'>
-          Settings
-        </div>
+          <div className='item-icon'>
+            <IoSettingsSharp />
+          </div>
+          <div className='item-title'>
+            Settings
+          </div>
         </Link>
       </div>
     </aside>

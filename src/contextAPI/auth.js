@@ -7,9 +7,11 @@ import { LocalStorage, requestHandler } from "../utils";
 const AuthContext = createContext({
     user: null,
     token: null,
+    
     login: async () => {},
     register: async () => {},
-    logout: async () => {}
+    logout: async () => {},
+    
 });
 
 const useAuth = () => useContext(AuthContext);
@@ -18,13 +20,16 @@ const AuthProvider = ({children}) => {
     const [isLoading, setIsLoading] = useState(false);
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(null);
-
+    // const [dataType, setDataType] = useState("json");
     const navigate = useNavigate();
 
-    const login = async (formData) => {
+    // const addDataType = (type) => {
+    //     setDataType(type);
+    // }
+    const login = async (email, username, password) => {
         // console.log("d",email, username, password);
         await requestHandler(
-            async () => await loginUser(formData),
+            async () => await loginUser(email, username, password),
             setIsLoading,
             (res) => {
                 // console.log(res);
@@ -77,7 +82,7 @@ const AuthProvider = ({children}) => {
     }, []);
 
     return (
-        <AuthContext.Provider value = {{user, login, register, logout, token, isLoading}}>
+        <AuthContext.Provider value = {{  user, login, register, logout, token, isLoading}}>
             {isLoading ? <Loader isLoading={isLoading}/> : children}
             {/* {children} */}
         </AuthContext.Provider>

@@ -456,18 +456,19 @@
 }
 .nav-tab{
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
     border-bottom: 3px solid white;
     margin-bottom: 1em;
-
+    display: flex;
+    gap: 2em;
+    width: 100%;
+    overflow-x: scroll;
 }
 .nav-tab a{
     font-size: 20px;
     text-decoration: none;
     margin-bottom: 10px;
-    width: 100%;
+    width: 5em;
+    padding: 0em 2em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -475,12 +476,14 @@
 .nav-tab a.active{
     background-color: white;
     height: 40px;
+    width: 100%;
     border-bottom: 5px solid blueviolet;
     border-radius: 5px;
 }
 .nav-tab a:active{
     color: black;
 }
+
 .p-2{
     padding: 0px 2em;
 }
@@ -761,7 +764,7 @@
     border-radius: 10px;
     color: white;
     width: 100%;
-    height: 100%;
+    height: 21em;
 
 }
 .video-thumbnail-priview img{
@@ -875,10 +878,10 @@ input[type=file]::file-selector-button{
 .my-video-container{
     border:1px solid white;
     color: white;
-    width: 74.5em;
+    /* width: 100%; */
     margin: 1em;
-    
-    overflow: scroll;
+    overflow-x: scroll;
+
 }
 .my-card-data{
     display: flex;
@@ -886,16 +889,18 @@ input[type=file]::file-selector-button{
     margin-top: 5px;
     align-items: center;
     justify-content: center; 
-    width: 74em;
+    width: 74.5em;
+ 
 }
 .my-card-header{
-    width:74em;
+    width:74.5em;
     display: flex;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     border-bottom: 1px solid white;
     align-items: center;
     justify-content: center;
+    
 }
 .my-card-header h4{
     width: 17%;
@@ -1021,6 +1026,7 @@ input[type=file]::file-selector-button{
     align-items: center;
     justify-content: center;
 }
+
 
 @media only screen and (max-width: 1100px) {
     .personal-layout{
@@ -1186,6 +1192,7 @@ input[type=file]::file-selector-button{
         border-top: 1px solid white;
         border-right: 0px;
         /* z-index: 100; */
+        display: block;
     }
     .hidden{
         display: none;

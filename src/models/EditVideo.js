@@ -7,13 +7,7 @@ const EditVideo = ({setUpdateFlag, thumbnail, title, description, setDescription
     const { apiupdateVideo} = useApp();
     
     const handleVideoUpdateUpload = async () => {
-        const formData = new FormData();
-        
-        formData.append("thumbnail", thumbnail)
-        formData.append("title", title)
-        formData.append("description", description)
-        
-        await apiupdateVideo(videoId, formData)
+        await apiupdateVideo(videoId, thumbnail, title, description)
         setUpdateFlag(false)
         
     }

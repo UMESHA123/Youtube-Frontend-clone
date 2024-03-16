@@ -21,7 +21,11 @@ const Register = () => {
     formData.append('password', password);
     formData.append('avatar', avatar);
     formData.append('coverImage', coverImage);
+    
+    //addDataType("formData")
     await register(formData)
+    //addDataType("json")
+
 }
 
   return (

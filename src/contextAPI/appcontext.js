@@ -281,9 +281,9 @@ const AppProvider = ({children}) => {
         );
     };
 
-    const apipublishVideo = async (data) => {
+    const apipublishVideo = async (thumbnail, video, title, description) => {
         await requestHandler(
-            async () => await publishVideo(data),
+            async () => await publishVideo(thumbnail, video, title, description),
             setIsLoading,
             (res) => {
                 setVideoPublishStatus(res.status);
@@ -328,9 +328,9 @@ const AppProvider = ({children}) => {
             alert 
         );
     };
-    const apiupdateVideo = async (videoId, data) => {
+    const apiupdateVideo = async (videoId, thumbnail, title, description) => {
         await requestHandler(
-            async () => await updateVideo(videoId, data),
+            async () => await updateVideo(videoId, thumbnail, title, description),
             setIsLoading,
             () => {
                 alert('video updated successfully.');
